@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="icaps">
+  <title>iCAPS | Features</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><span class="highlight">iCAPS </span></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="current"><a href="features.html">Features</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="newsletter">
+    <div class="container">
+
+    </div>
+  </section>
+
+  <section id="main" style=" background-image:url('./img/heart_hd - Copy.jpg')">
+    <div class="container">
+      <article id="main-col">
+        <h1 class="page-title">Features</h1>
+        <ul id="services">
+          <li>
+            <h3>Rule based abnormality identification</h3>
+            <p>The input signal is first filtered, segmented and detects the positive and negative peaks in the beat
+              array. R peak locations are detected using the result of
+              the Hamilton segmenter algorithm. Using the R peak locations, the other vitals
+              are calculated. All the extracted features are input to the rule engine to classify
+              into normal and abnormal classes using the threshold values. Rule based abnormality identification has
+              achieved 97.55% ± 0.3% of Accuracy for executing the
+              process for 100 times</p>
+          </li>
+          <li>
+            <h3>RNN-LSTM Based Arrhythmia Classification Model</h3>
+            <p>The model has a 3 layer LSTM architecture with activation softmax and it is trained and tested with
+              the MITBIH Arrhythmia Database with 96265 beat samples.
+              In Order to feed data into our prediction model the heart beats are extracted from the ECG reading
+              based on the R peaks distribution which is identified in the previous phase. Each individual heart
+              beat record is appended a fix value of data points from the next heartbeat in order to capture the
+              complete QRS complex. Then each heart beat resampled to 256Hz and normalize the mV readings
+              to a 0-1 range.
+              The model is designed to classify abnormalities into fifteen classes recommended by ANSI/AAMI
+              standard. The NN based model obtained 95.39% of a training accuracy and 97.1% of validation accuracy</p>
+          </li>
+          <li>
+            <h3>Classification speed improvement using the GPU</h3>
+            <p>In order to improve the classification mechanism’s speed we can utilize the GPU to perform some of the
+              tasks in the classification process.
+              The Pycuda programming model is used to build the GPU algorithm, where the above algorithms will be
+              executed on the GPU platform. In parallel programming the GPU referred as the ‘Device’ and the CPU as the
+              ‘Host’. The Feature Extraction, Arrhythmia Identification and classification model are executed parallely
+              on the GPU or the device as kernels. The GPU enhancement algorithm allocates memory to the device which is
+              the GPU and
+              Transfers data from the host memory to the memory allocated in the GPU then the configuration of the GPU
+              is executed where the invoking of the kernel function takes place. Next the data is transferred back to
+              the Host memory and releases the memory allocation of the device.
+            </p>
+          </li>
+        </ul>
+      </article>
+
+      <!-- <aside id="sidebar">
+        <div class="dark">
+          <h3>Get A Quote</h3>
+          <form class="quote">
+            <div>
+              <label>Name</label><br>
+              <input type="text" placeholder="Name">
+            </div>
+            <div>
+              <label>Email</label><br>
+              <input type="email" placeholder="Emial Address">
+            </div>
+            <div>
+              <label>Message</label><br>
+              <textarea placeholder="Message"></textarea>
+            </div>
+            <button class="button_1" type="submit">Send</button>
+          </form>
+        </div>
+      </aside> -->
+    </div>
+  </section>
+
+  <footer>
+    <p>iCAPS-SLIIT &copy; 2019</p>
+</body>
+
+</html>
